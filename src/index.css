@@ -1,0 +1,610 @@
+/* ========================================
+   Global Reset & Variables
+   ======================================== */
+:root {
+  /* Colors */
+  --color-bg: #fafaf8;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f3ef;
+  --color-border: #e0dcd4;
+  --color-text: #2c2c2c;
+  --color-text-secondary: #666;
+  --color-text-muted: #999;
+  --color-accent: #6b5d4f;
+  --color-accent-hover: #3d3228;
+  --color-highlight: #edf2f7;
+  --color-sidebar-bg: #1a1612;
+  --color-sidebar-text: #c4b59a;
+  --color-sidebar-active: #c49a5c;
+
+  /* Typography */
+  --font-body: 'Georgia', 'Times New Roman', serif;
+  --font-heading: 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono: 'Menlo', 'Monaco', 'Consolas', monospace;
+
+  /* Spacing */
+  --sidebar-width: 260px;
+  --content-max-width: 900px;
+
+  font-family: var(--font-body);
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-sidebar-active);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Layout
+   ======================================== */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ========================================
+   Sidebar Navigation
+   ======================================== */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--color-sidebar-bg);
+  color: var(--color-sidebar-text);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.sidebar-header {
+  padding: 1.5rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0.75rem 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--color-sidebar-text);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  transition: background 0.15s, color 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  background: rgba(196, 154, 92, 0.12);
+  color: var(--color-sidebar-active);
+  border-left-color: var(--color-sidebar-active);
+  font-weight: 600;
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+}
+
+.page h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.page h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.page h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-description {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   Home Page
+   ======================================== */
+.home-page {
+  max-width: 100%;
+  padding: 0;
+}
+
+.banner-container {
+  width: 100%;
+  max-height: 350px;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.home-content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+}
+
+.supp-label {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.paper-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+}
+
+.abstract {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 2rem;
+}
+
+.abstract h2 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.abstract p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.home-sections {
+  margin-top: 2rem;
+}
+
+.home-sections h2 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.home-sections p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* ========================================
+   Sample Lists (Sentence & Passage)
+   ======================================== */
+.sample-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sample-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.sample-item .sample-id {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   Tab Bars
+   ======================================== */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+.tab.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ========================================
+   Prompt / Code Blocks
+   ======================================== */
+.prompt-block {
+  padding: 1.25rem;
+}
+
+.prompt-block code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  display: block;
+}
+
+.metric-card {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-surface);
+  margin-bottom: 1rem;
+}
+
+.metric-card h3 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-surface-alt);
+  border-bottom: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* ========================================
+   Reasoning Statements
+   ======================================== */
+.reasonings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.reasoning-details {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.reasoning-details summary {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color 0.15s;
+}
+
+.reasoning-details summary:hover {
+  color: var(--color-text);
+}
+
+.reasoning-details[open] summary {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.reasoning-statements {
+  padding: 1rem 1.25rem 1rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reasoning-statements li {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.reasoning-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.reasoning-entry {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-surface-alt);
+}
+
+.reasoning-entry:last-child {
+  border-bottom: none;
+}
+
+.reasoning-snippet {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--color-border);
+}
+
+.reasoning-text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* ========================================
+   Step Cards (Methodology)
+   ======================================== */
+.protocol-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.step-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.step-card h3 {
+  margin-top: 0;
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.category-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-surface-alt);
+  font-size: 0.9rem;
+}
+
+.category-list li:last-child {
+  border-bottom: none;
+}
+
+.category-list strong {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+/* ========================================
+   Passage Display
+   ======================================== */
+.passage-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.passage-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-surface-alt);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.passage-text {
+  padding: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ========================================
+   Protocol Info
+   ======================================== */
+.protocol-info {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.protocol-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.protocol-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.protocol-info li {
+  font-size: 0.85rem;
+  padding: 0.3rem 0;
+  color: var(--color-text-secondary);
+}
+
+.protocol-info li strong {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--color-text);
+}
+
+/* ========================================
+   Plot / Image Placeholders
+   ======================================== */
+.plot-container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.plot-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.plot-placeholder {
+  padding: 3rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 220px;
+  }
+  .main-content {
+    margin-left: 220px;
+  }
+  .page {
+    padding: 2rem 1.5rem;
+  }
+  .home-content {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    gap: 0.25rem;
+  }
+  .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    border-left: none;
+    border-radius: 4px;
+  }
+  .nav-link.active {
+    border-left: none;
+  }
+}

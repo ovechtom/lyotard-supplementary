@@ -1,0 +1,45 @@
+{
+  "title": "LLM Analyst Methodology",
+  "description": "The judge's reasoning texts were submitted to a separate LLM analyst session (Claude Opus 4.6) for qualitative discourse analysis. The analyst had no information about how the texts were generated or which conditions they belonged to. The analysis followed a five-step protocol.",
+  "steps": [
+    {
+      "step": 1,
+      "title": "Lexical Inventory",
+      "description": "For each condition, extract the most frequently recurring descriptive phrases, attributions of intent, and evaluative framings the judge uses. Organize into three categories:",
+      "categories": [
+        {
+          "name": "Agency language",
+          "description": "How does the judge describe the origin of the text's qualities? (e.g., \"deliberately crafted,\" \"accidentally produced,\" \"stumbled into,\" \"emerged from a process\")"
+        },
+        {
+          "name": "Mode-recognition language",
+          "description": "How does the judge describe the text's relationship to established literary categories? (e.g., \"fits comfortably within,\" \"resists easy classification,\" \"recognizable as\")"
+        },
+        {
+          "name": "Quality-attribution language",
+          "description": "How does the judge characterize the aesthetic or literary properties? (e.g., \"overwrought,\" \"controlled,\" \"unpolished,\" \"formulaic,\" \"uncanny\")"
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "title": "Cross-dimensional Analysis",
+      "description": "For each condition, examine cases where Q1 and Q2 scores diverge (e.g., high craft + low categorizability, or low craft + high categorizability) and cases where they align. Identify what features of the text or what reasoning patterns the judge uses to justify each combination. Quote specific reasoning excerpts to support claims."
+    },
+    {
+      "step": 3,
+      "title": "Between-condition Comparison",
+      "description": "Compare the reasoning patterns across conditions. Address: Does the judge use qualitatively different kinds of reasoning for different conditions, or the same reasoning applied to different degrees? Are there features that the judge notices in one condition but not another? When the judge identifies something as \"arrived-at\" or \"unanticipated,\" what specific textual properties does it point to? When the judge identifies something as \"categorizable,\" what categories does it reach for?"
+    },
+    {
+      "step": 4,
+      "title": "Mechanistic Hypothesis",
+      "description": "Based on the discourse patterns identified above, propose a mechanistic explanation for why the correlation between Q1 and Q2 scores may be higher or lower in each condition. Ground this explanation in specific, recurring patterns in the judge's reasoning rather than abstract theoretical claims."
+    },
+    {
+      "step": 5,
+      "title": "Limitations",
+      "description": "Identify potential confounds or limitations in the judge's reasoning patterns that could affect the validity of the analysis. For example: circular reasoning, anchoring on surface features, inconsistent application of criteria across conditions, or systematic biases in how the judge processes different text styles."
+    }
+  ]
+}

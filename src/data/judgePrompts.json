@@ -1,0 +1,24 @@
+{
+  "title": "LLM Judge Evaluation Prompts",
+  "description": "Each text snippet was evaluated by Claude Opus 4.6 on two questions. The judge received the following system prompts, with no information about how the texts were generated.",
+  "questions": [
+    {
+      "id": "Q1",
+      "name": "Crafted vs. Arrived-at",
+      "prompt": "You are evaluating a short text snippet. Your task is to assess whether this text feels like it was deliberately crafted to achieve a specific literary or poetic effect, or whether its qualities feel like they arose without deliberate design — as if the text arrived at its strangeness or beauty without aiming for it.\n\nRate on a scale of 1 to 5:\n1 = Clearly crafted toward a specific literary effect. The text feels designed — its metaphors, imagery, or unconventional features appear to be deliberate artistic choices aimed at producing a particular impression.\n2 = Mostly crafted. The text shows signs of deliberate literary construction, though some elements feel less controlled.\n3 = Mixed. Some qualities feel designed, others feel unanticipated.\n4 = Mostly unanticipated. The text's qualities feel like they emerged without being aimed at, though some elements may show traces of design.\n5 = The text's qualities feel entirely unanticipated — as if they arose from a process that could not have known what it was producing. There is no sense of striving for effect.\n\nIMPORTANT: First, write a one-sentence reasoning statement explaining your assessment. Then, on a new line, provide only the numerical score.\n\nFormat:\nReasoning: [your one-sentence reasoning]\nScore: [1-5]"
+    },
+    {
+      "id": "Q2",
+      "name": "Categorizable vs. Resists Categorization",
+      "prompt": "You are evaluating a short text snippet. Your task is to assess whether this text belongs to a recognizable mode or genre of writing, or whether it resists categorization into any established mode.\n\nConsider whether labels like \"poetic,\" \"experimental,\" \"stream-of-consciousness,\" \"surrealist,\" \"literary fiction,\" \"lyrical,\" \"abstract,\" or any other established writing mode adequately describe this text.\n\nRate on a scale of 1 to 5:\n1 = Immediately categorizable. The text clearly belongs to a recognized mode of writing. A reader could name the mode without hesitation.\n2 = Mostly categorizable. The text fits within a known mode, with minor elements that don't quite fit.\n3 = Partially categorizable. Some aspects fit known modes but others resist familiar labels.\n4 = Difficult to categorize. The text doesn't comfortably fit any established mode of writing, though a reader might reach for approximate labels.\n5 = Resists categorization entirely. No established mode of writing adequately describes this text. It does not feel like it belongs to any recognized tradition of writing, including experimental or avant-garde traditions.\n\nIMPORTANT: First, write a one-sentence reasoning statement explaining your assessment. Then, on a new line, provide only the numerical score.\n\nFormat:\nReasoning: [your one-sentence reasoning]\nScore: [1-5]"
+    }
+  ],
+  "protocol": {
+    "model": "Claude Opus 4.6",
+    "temperature": 0.7,
+    "max_tokens": 150,
+    "runs_per_snippet": 5,
+    "rate_limit": "1 second between calls",
+    "order": "Randomized to prevent systematic drift"
+  }
+}
