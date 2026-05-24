@@ -16,7 +16,25 @@ function Home() {
           Is It Happening? Lyotard's Sublime and the Indeterminate in AI-Generated Text
         </h1>
 
-        <p style={{ color: '#666', marginBottom: '2rem', fontSize: '0.95rem' }}>Anonymous submission</p>
+        <div className="authors">
+          <p className="author-list">
+            Olga Vechtomova
+          </p>
+          <p className="affiliations">
+            University of Waterloo, Canada
+          </p>
+          <p className="venue">
+            Accepted as a short paper at the{' '}
+            <a
+              href="https://computationalcreativity.net/iccc26/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              International Conference on Computational Creativity (ICCC'26)
+            </a>
+            .
+          </p>
+        </div>
 
         <div className="abstract">
           <h2>Abstract</h2>
